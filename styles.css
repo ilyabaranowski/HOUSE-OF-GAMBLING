@@ -404,3 +404,20 @@ div.icons-center * {
     flex-direction: row;
     gap: 8px;
 }
+
+.social > div > ul > li * :hover {
+    filter: invert(100%);
+    -webkit-filter: invert(100%);
+}
+
+/*Adaptive*/
+
+@media (max-width: 1400px) {
+    .header-wrapper {
+        padding-left: 5%;
+    }
+}
+
+@media (max-width: 1304px) {
+
+}
