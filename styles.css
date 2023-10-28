@@ -218,6 +218,18 @@ button:hover,
     background: url("./assets/img/World.png");
 }
 
+.mobile-globe {
+    background: url("./assets/img/mobile-World.png");
+}
+
+.mobile-usd {
+    background: url("./assets/img/mobile-usd.png");
+}
+
+.mobile-globe, .mobile-usd {
+    display: none;
+}
+
 .icons-left > * ,
 .icons-center > * ,
 .icons-right >* {
@@ -484,8 +496,61 @@ div.icons-center * {
     }
 
     .moving-ico {
-        /*display: flex;*/
-        /*flex-direction: row;*/
+        display: flex;
+        flex-direction: row;
+        padding-top: 32px;
+    }
+
+    div.icons-left * {
+        animation-name: move-right__left;
+    }
+
+    @keyframes move-right__left {
+        0% {
+            left: -30px;
+        }
+        50% {
+            left: 0px;
+        }
+        100% {
+            left: -30px
+        }
+    }
+
+    div.icons-center * {
+        animation-name: move-left__center;
+        animation-duration: 6s;
+    }
+
+    @keyframes move-left__center {
+        0% {
+            right: 50px;
+        }
+        50% {
+            right: 0px;
+        }
+        100% {
+            right: 50px
+        }
+    }
+
+    div.icons-right * {
+        animation-name: move-right__right;
+    }
+
+    @keyframes move-right__right {
+        0% {
+            left: 0px;
+        }
+        50% {
+            left: 40px;
+        }
+        100% {
+            left: 0px
+        }
+    }
+
+    .icon-globe, .icon-usd {
         display: none;
     }
 
@@ -495,8 +560,24 @@ div.icons-center * {
     }
 
     .icons {
-        display: block;
+        display: flex;
+        flex-direction: column;
+        gap: 9px;    }
+
+    .icons-left > * ,
+    .icons-center > * ,
+    .icons-right >* {
+        height: 48px;
+        width: 48px;
+        background-size: contain;
+        background-repeat: no-repeat;
     }
+
+    .mobile-globe, .mobile-usd {
+        display: block;
+        width: 108px;
+    }
+
 
     .blog__title {
         font-size: 32px;
