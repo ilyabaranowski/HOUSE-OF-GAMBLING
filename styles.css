@@ -190,6 +190,10 @@ button:hover,
     height: 1016px;
 }
 
+.moving-ico {
+    overflow: hidden;
+}
+
 .icon-crown {
     background: url("./assets/img/Crown.png");
 }
@@ -495,83 +499,136 @@ div.icons-center * {
         width: 100%;
     }
 
-    .moving-ico {
-        display: flex;
-        flex-direction: row;
-        padding-top: 32px;
-    }
-
-    div.icons-left * {
-        animation-name: move-right__left;
-    }
-
-    @keyframes move-right__left {
-        0% {
-            left: -30px;
-        }
-        50% {
-            left: 0px;
-        }
-        100% {
-            left: -30px
-        }
-    }
-
-    div.icons-center * {
-        animation-name: move-left__center;
-        animation-duration: 6s;
-    }
-
-    @keyframes move-left__center {
-        0% {
-            right: 50px;
-        }
-        50% {
-            right: 0px;
-        }
-        100% {
-            right: 50px
-        }
-    }
-
-    div.icons-right * {
-        animation-name: move-right__right;
-    }
-
-    @keyframes move-right__right {
-        0% {
-            left: 0px;
-        }
-        50% {
-            left: 40px;
-        }
-        100% {
-            left: 0px
-        }
-    }
-
     .icon-globe, .icon-usd {
         display: none;
     }
 
-    .icons-left, .icons-center, .icons-right {
+    .moving-ico {
         display: flex;
         flex-direction: row;
+        padding-top: 32px;
+        justify-content: center;
+        position: relative;
     }
+    .moving-ico::before,
+    .moving-ico::after {
+        background: unset;
+        content: "";
+        height: 163px;
+        position: absolute;
+        width: 16%;
+        z-index: 2;
+ }
 
-    .icons {
-        display: flex;
-        flex-direction: column;
-        gap: 9px;    }
+    .moving-ico::after {
+        right: 0;
+        top: 365px;
+        transform: rotateZ(180deg);
+ }
 
-    .icons-left > * ,
-    .icons-center > * ,
-    .icons-right >* {
-        height: 48px;
-        width: 48px;
-        background-size: contain;
-        background-repeat: no-repeat;
-    }
+    .moving-ico::before {
+        left: 0;
+        top: 365px;
+ }
+
+       .icons-left, .icons-center, .icons-right {
+           display: flex;
+           flex-direction: row;
+           gap: 9px;
+       }
+
+       .icons {
+           display: flex;
+           flex-direction: column;
+       }
+
+       .icons-left > * ,
+       .icons-center > * ,
+       .icons-right >* {
+           background-size: contain;
+           background-repeat: no-repeat;
+       }
+
+       @keyframes scroll-left {
+           0% {
+               transform: translateX(0);
+           }
+           100% {
+               transform: translateX(calc(-250px * 7));
+           }
+       }
+
+       div.icons-left * , div.icons-right * {
+           animation: scroll-left 40s linear infinite;
+           display: flex;
+           width: calc(97px * 7);
+       }
+
+       .icon .slide {
+           height: 48px;
+       }
+
+       @keyframes scroll-right {
+           0% {
+               transform: translateX(0);
+           }
+           100% {
+               transform: translateX(calc(250px * 7));
+           }
+       }
+
+        div.icons-center * {
+           animation: scroll-right 40s linear infinite;
+           display: flex;
+           width: calc(97px * 7);
+       }
+
+
+
+    /*div.icons-left * {*/
+    /*    animation-name: move-right__left;*/
+    /*}*/
+
+    /*@keyframes move-right__left {*/
+    /*    0% {*/
+    /*        left: -30px;*/
+    /*    }*/
+    /*    50% {*/
+    /*        left: 0px;*/
+    /*    }*/
+    /*    100% {*/
+    /*        left: -30px*/
+    /*    }*/
+    /*}*/
+
+ /*   div.icons-center * {*/
+ /*       animation: move-left__center 40s linear infinite;*/
+ /*       display: flex;*/
+ /*       width: calc(29px * 3);*/
+ /*   }*/
+
+ /*   @keyframes move-left__center {*/
+ /*       0% {*/
+ /*           transform: translateX(0px);*/
+ /*       }*/
+ /*       100% {*/
+ /*           transform: translateX(calc(-48px * 7))*/
+ /*       }*/
+ /*   }*/
+
+ /*   div.icons-right * {*/
+ /*       animation-name: move-right__right;*/
+ /*   }*/
+
+ /*   @keyframes move-right__right {*/
+ /*       0% {*/
+ /*           transform: translateX(100px);*/
+ /*       }*/
+ /*       100% {*/
+ /*           transform: translateX(calc(-10px * 7))*/
+ /*       }*/
+ /*   }*/
+
 
     .mobile-globe, .mobile-usd {
         display: block;
