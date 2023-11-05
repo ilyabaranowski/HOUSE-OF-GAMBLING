@@ -13,6 +13,7 @@ body {
     background-position: left, right;
     background-repeat: no-repeat;
     background-size: contain;
+    height: 100vh;
 }
 
 p, h1, h2, h3, ul {
@@ -187,7 +188,7 @@ button:hover,
 }
 
 .main-wrapper {
-    height: 1016px;
+    height: 80vh;
 }
 
 .moving-ico {
@@ -259,65 +260,45 @@ button:hover,
     display: flex;
 }
 
-div.icons-left * {
-    animation-name: move-down__left;
-    animation-duration: 9s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
+.slide{
+    background-repeat: no-repeat;
 }
 
-@keyframes move-down__left {
-    0% {
-        top: 0px;
-    }
-    50% {
-        top: 80px;
-    }
-    100% {
-        top: 0px
-    }
+div.icons-left *, div.icons-right * {
+    animation: move-down 15s linear infinite;
+    /*height: calc(100px * 8);*/
+    /*display: flex;*/
 }
 
-div.icons-right * {
-    animation-name: move-down__right;
-    animation-duration: 9s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-}
-@keyframes move-down__right {
+@keyframes move-down {
     0% {
-        top: 0px;
-    }
-    50% {
-        top: 210px;
+        transform: translateY(-800px);
     }
     100% {
-        top: 0px
+        transform: translateY(calc(4px * 7));
     }
 }
 
 div.icons-center * {
-    animation-name: move-up;
-    animation-duration: 11s;
-    animation-timing-function: linear;
-    animation-iteration-count: infinite;
-    animation-direction: reverse;
+    animation: move-up 15s linear infinite;
+    /*height: calc(100px * 8);*/
+    /*display: flex;*/
 }
 
 @keyframes move-up {
     0% {
-        bottom: -200px;
-    }
-    50% {
-        bottom: 0px;
+        transform: translateY(0);
     }
     100% {
-        bottom: -200px
+        transform: translateY(calc(-90px * 7));
     }
 }
 
 .blog {
     width: 32.4%;
+    height: 95.4%;
+    display: flex;
+    justify-content: center;
 }
 
 .blog__title {
@@ -334,7 +315,6 @@ div.icons-center * {
     background: rgba(255, 255, 255, 0.12);
     overflow-y: scroll;
     border: 3px solid var(--main-blue);
-    /*backdrop-filter: blur(10px);*/
 }
 
 .blog-content {
@@ -449,8 +429,7 @@ div.icons-center * {
 @media (max-width: 1400px) {
 
     body {
-        background-position: top, bottom;
-        background-size: cover;
+        height: auto;
     }
 
     .header-wrapper {
@@ -510,36 +489,18 @@ div.icons-center * {
         justify-content: center;
         position: relative;
     }
-    .moving-ico::before,
-    .moving-ico::after {
-        background: unset;
-        content: "";
-        height: 163px;
-        position: absolute;
-        width: 16%;
-        z-index: 2;
- }
 
-    .moving-ico::after {
-        right: 0;
-        top: 365px;
-        transform: rotateZ(180deg);
- }
-
-    .moving-ico::before {
-        left: 0;
-        top: 365px;
- }
-
-       .icons-left, .icons-center, .icons-right {
+    .icons-left, .icons-center, .icons-right {
            display: flex;
            flex-direction: row;
            gap: 9px;
        }
 
-       .icons {
-           display: flex;
-           flex-direction: column;
+    .icons {
+        display: flex;
+        flex-direction: column;
+        height: 163px;
+        justify-content: space-between;
        }
 
        .icons-left > * ,
@@ -554,18 +515,17 @@ div.icons-center * {
                transform: translateX(0);
            }
            100% {
-               transform: translateX(calc(-250px * 7));
+               transform: translateX(calc(-49px * 7));
            }
        }
 
        div.icons-left * , div.icons-right * {
-           animation: scroll-left 40s linear infinite;
-           display: flex;
-           width: calc(97px * 7);
+           animation: scroll-left 20s linear infinite;
        }
 
-       .icon .slide {
-           height: 48px;
+       .slide {
+           height: 49px;
+           width: 49px;
        }
 
        @keyframes scroll-right {
@@ -573,62 +533,13 @@ div.icons-center * {
                transform: translateX(0);
            }
            100% {
-               transform: translateX(calc(250px * 7));
+               transform: translateX(calc(49px * 7));
            }
        }
 
         div.icons-center * {
-           animation: scroll-right 40s linear infinite;
-           display: flex;
-           width: calc(97px * 7);
+           animation: scroll-right 20s linear infinite;
        }
-
-
-
-    /*div.icons-left * {*/
-    /*    animation-name: move-right__left;*/
-    /*}*/
-
-    /*@keyframes move-right__left {*/
-    /*    0% {*/
-    /*        left: -30px;*/
-    /*    }*/
-    /*    50% {*/
-    /*        left: 0px;*/
-    /*    }*/
-    /*    100% {*/
-    /*        left: -30px*/
-    /*    }*/
-    /*}*/
-
- /*   div.icons-center * {*/
- /*       animation: move-left__center 40s linear infinite;*/
- /*       display: flex;*/
- /*       width: calc(29px * 3);*/
- /*   }*/
-
- /*   @keyframes move-left__center {*/
- /*       0% {*/
- /*           transform: translateX(0px);*/
- /*       }*/
- /*       100% {*/
- /*           transform: translateX(calc(-48px * 7))*/
- /*       }*/
- /*   }*/
-
- /*   div.icons-right * {*/
- /*       animation-name: move-right__right;*/
- /*   }*/
-
- /*   @keyframes move-right__right {*/
- /*       0% {*/
- /*           transform: translateX(100px);*/
- /*       }*/
- /*       100% {*/
- /*           transform: translateX(calc(-10px * 7))*/
- /*       }*/
- /*   }*/
-
 
     .mobile-globe, .mobile-usd {
         display: block;
@@ -680,6 +591,11 @@ div.icons-center * {
 }
 
 @media (max-width: 993px) {
+
+    body {
+        background-position: top, bottom;
+        background-size: contain;
+    }
 
     header {
         padding: 10px 14px 0px 14px;
