@@ -44,8 +44,12 @@ button, .blog-content__preview {
     --purple: #9DADF2;
 }
 
-a:hover {
-    color: var(--main-blue);
+a {
+    transition: all 0.5s linear;
+}
+
+.navigation__item:hover {
+    background-color: var(--main-blue);
 }
 
 button:hover,
@@ -400,6 +404,10 @@ div.icons-center * {
 .footer-navigation > nav > ul > li:nth-child(1) > a {
     color: var(--main-blue);
     text-decoration: underline;
+}
+
+.footer-navigation > nav > ul > li:nth-child(1) > a:hover {
+    background-color: var(--white);
 }
 
 .social {
