@@ -1,4 +1,4 @@
-//Burger menu appears on click
+// Burger menu appears on click
 const burger = document.querySelector(".burger");
 const navMenu = document.querySelector(".navigation__list");
 
@@ -14,7 +14,7 @@ document.querySelectorAll(".nav-link").forEach((nav) =>
     }),
 );
 
-//Text changing on button language
+// Text changing on button language
 
 const changeLang = document.querySelector(".globe-txt");
 
